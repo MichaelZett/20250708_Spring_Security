@@ -1,0 +1,17 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+.idea
+
+# Maven
+log/
+target/
+
+classpathy_out
+modular_out
+.iml
+*.iml
+
+bilder/
+.docx
