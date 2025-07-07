@@ -29,8 +29,10 @@
                 <td><span th:text="${movie.title}"> </span></td>
                 <td><span th:text="${#temporals.format(movie.releaseDate,'dd-MM-yyyy')}"> </span></td>
                 <td><span th:text="${movie.fsk}"> </span></td>
-                <td><a th:href="@{/editmovie/{uuid}(uuid=${movie.uuid})}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i>Ändern</a></td>
-                <td><a th:href="@{/deletemovie/{uuid}(uuid=${movie.uuid})}" class="btn btn-danger"><i class="bi bi-trash-fill"></i>Löschen</a></td>
+                <td><a th:href="@{/editmovie/{uuid}(uuid=${movie.uuid})}" class="btn btn-primary"><i
+                        class="bi bi-pencil-fill"></i>Ändern</a></td>
+                <td><a th:href="@{/deletemovie/{uuid}(uuid=${movie.uuid})}" class="btn btn-danger"><i
+                        class="bi bi-trash-fill"></i>Löschen</a></td>
             </tr>
             </tbody>
         </table>

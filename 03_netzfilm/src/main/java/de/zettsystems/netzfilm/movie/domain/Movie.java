@@ -2,17 +2,7 @@ package de.zettsystems.netzfilm.movie.domain;
 
 import de.zettsystems.netzfilm.movie.values.Fsk;
 import de.zettsystems.netzfilm.movie.values.MovieTo;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Index;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
 

@@ -8,11 +8,10 @@ import jakarta.validation.constraints.Past;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Schema(name = "Kundendaten", description = "Kundendaten zum Anlegen und Anpassen")
 public record CustomerDataTo(@Schema(description = "Benutzername",
-                                     example = "username") @NotBlank String username,
+        example = "username") @NotBlank String username,
                              @Schema(description = "Vorname",
                                      example = "Frank") @NotBlank String name,
                              @Schema(description = "Nachname",

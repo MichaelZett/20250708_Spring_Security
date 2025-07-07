@@ -52,7 +52,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @Transactional
     public boolean deleteMovie(UUID uuid) {
-        return movieRepository.deleteByUuid(uuid) ==  1;
+        return movieRepository.deleteByUuid(uuid) == 1;
     }
 
 }

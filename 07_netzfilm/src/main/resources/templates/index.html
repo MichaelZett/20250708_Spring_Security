@@ -7,18 +7,23 @@
 </head>
 <body>
 <h1>Netzfilm - die heißesten Streifen nach Hause bestellen!</h1>
+
+<div sec:authorize="hasAnyRole('ROLE_CUSTOMER','ROLE_STAFF', 'ROLE_VIP_STAFF','ROLE_ADMIN')">
+    <p><a href="/swagger-ui/index.html">Swagger-UI</a></p>
+</div>
+
 <div sec:authorize="hasRole('ROLE_CUSTOMER')">
     <p><a href="/rents">Leihen</a></p>
 </div>
 
 <div sec:authorize="hasAnyRole('ROLE_STAFF', 'ROLE_VIP_STAFF')">
+    <p><a href="/swagger-ui/index.html">Swagger-UI</a></p>
     <p><a href="/customers">Kunden</a></p>
     <p><a href="/movies">Filme</a></p>
 </div>
 
 <div sec:authorize="hasRole('ROLE_ADMIN')">
     <p><a href="/actuator">Actuator</a></p>
-    <p><a href="/swagger-ui/index.html">Swagger-UI</a></p>
 </div>
 <div sec:authorize="isAuthenticated()">
     <p><a href="/logout">Logout</a></p>

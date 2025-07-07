@@ -1,13 +1,12 @@
 package de.zettsystems.netzfilm.user.domain;
 
+import de.zettsystems.netzfilm.user.values.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import de.zettsystems.netzfilm.user.values.Role;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -60,9 +59,12 @@ public abstract class BaseUser implements UserDetails {
     @Column(name = "role")
     private Set<Role> roles = new HashSet<>();
 
+    private int failedAttempts;
+
     public BaseUser() {
         super();
         this.uuid = UUID.randomUUID();
+        this.failedAttempts = 0;
     }
 
     public BaseUser(String username, String password, String name, String lastName, LocalDate birthdate, Set<Role> roles) {
@@ -82,8 +84,23 @@ public abstract class BaseUser implements UserDetails {
                 .toList();
     }
 
-    @Override public boolean isAccountNonExpired()     { return true; }
-    @Override public boolean isAccountNonLocked()      { return true; }
-    @Override public boolean isCredentialsNonExpired() { return true; }
-    @Override public boolean isEnabled()               { return true; }
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return failedAttempts < 3;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -48,7 +47,7 @@ class RentControllerTest {
     private UserRepository userRepository;
 
     @Test
-    @WithMockUser(username = "Petra", roles ="CUSTOMER")
+    @WithMockUser(username = "Petra", roles = "CUSTOMER")
     void shouldGetOverview() throws Exception {
         RentListTo filmchen = new RentListTo("Filmchen", LocalDate.now(), LocalDate.now(), BigDecimal.TEN);
 

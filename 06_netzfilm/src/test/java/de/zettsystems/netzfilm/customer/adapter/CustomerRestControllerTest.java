@@ -4,36 +4,25 @@ import de.zettsystems.netzfilm.configuration.SecurityConfig;
 import de.zettsystems.netzfilm.customer.application.CustomerService;
 import de.zettsystems.netzfilm.customer.values.CustomerTo;
 import de.zettsystems.netzfilm.rent.application.RentService;
-import de.zettsystems.netzfilm.rent.values.RentTo;
-import de.zettsystems.netzfilm.staff.domain.StaffMember;
-import de.zettsystems.netzfilm.user.application.UserDetailsServiceImpl;
-import de.zettsystems.netzfilm.user.domain.BaseUser;
 import de.zettsystems.netzfilm.user.domain.UserRepository;
-import de.zettsystems.netzfilm.user.values.Role;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = CustomerRestController.class)
 @Import(SecurityConfig.class)
@@ -56,7 +45,7 @@ class CustomerRestControllerTest {
     @WithMockUser(roles = "STAFF")
     void shouldFindAll() throws Exception {
         CustomerTo customerTo = new CustomerTo(UUID.randomUUID(), "bernd", "Bernd", "das Brot",
-                LocalDate.now(), false,0);
+                LocalDate.now(), false, 0);
 
         List<CustomerTo> customerTos = List.of(customerTo);
 

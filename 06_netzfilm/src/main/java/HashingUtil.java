@@ -4,7 +4,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class HashingUtil {
     public static void main(String[] args) {
         System.out.println("bcrypt: " + new BCryptPasswordEncoder().encode("secret"));
-        System.out.println("bcrypt: " + new BCryptPasswordEncoder().encode("fritz"));
+        System.out.println("argon2: " + Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8().encode("klara"));
+        System.out.println("argon2: " + Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8().encode("fritz"));
         System.out.println("argon2: " + Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8().encode("secret"));
     }
 }

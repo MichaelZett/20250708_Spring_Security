@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @Schema(name = "Filmdaten", description = "Filmdaten zum Anlegen und Anpassen")
 public record MovieDataTo(@Schema(description = "Filmtitel",
-                                    example = "Der Titel") @NotBlank String title,
+        example = "Der Titel") @NotBlank String title,
                           @Schema(
                                   description = "Erscheinungsdatum",
                                   type = "string",
@@ -18,7 +18,7 @@ public record MovieDataTo(@Schema(description = "Filmtitel",
                                   pattern = "dd.MM.yyyy",
                                   example = "31.12.2022"
                           ) @NotNull @DateTimeFormat(iso = DateTimeFormat.ISO.DATE,
-                                      fallbackPatterns = {"dd.MM.yyyy"})
+                                  fallbackPatterns = {"dd.MM.yyyy"})
                           @JsonFormat(pattern = "dd.MM.yyyy") LocalDate releaseDate,
-                          @Schema(description = "Altersfreigabe", example= "FSK_12") @NotNull Fsk fsk) {
+                          @Schema(description = "Altersfreigabe", example = "FSK_12") @NotNull Fsk fsk) {
 }

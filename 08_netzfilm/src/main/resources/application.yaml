@@ -1,0 +1,69 @@
+server:
+  port: 8443
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: never
+    include-exception: false
+  compression:
+    enabled: true
+    mime-types: application/json
+  shutdown: graceful
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: training123
+    key-store-type: PKCS12
+    key-alias: springboot
+
+spring:
+  application:
+    name: Netzfilm
+  jackson:
+    time-zone: UTC
+    default-property-inclusion: non_null
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      READ_UNKNOWN_ENUM_VALUES_AS_NULL: true
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    generator:
+      WRITE_BIGDECIMAL_AS_PLAIN: true
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/netzfilm'
+    username: postgres
+    password: postgres
+
+    hikari:
+      # https://vladmihalcea.com/why-you-should-always-use-hibernate-connection-provider_disables_autocommit-for-resource-local-jpa-transactions/
+      # in combination with jpa.properties.hibernate.connection.provider_disables_autocommit: true
+      auto-commit: false
+  jpa:
+    properties:
+      hibernate:
+        connection:
+          provider_disables_autocommit: true
+        jdbc:
+          time_zone: UTC
+    open-in-view: false
+    generate-ddl: true
+    # per default
+    hibernate:
+      ddl-auto: create-drop #none, validate, update,
+    defer-datasource-initialization: true #so that hibernate can work before
+  sql:
+    init:
+      mode: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+springdoc:
+  swagger-ui:
+    csrf:
+      enabled: true

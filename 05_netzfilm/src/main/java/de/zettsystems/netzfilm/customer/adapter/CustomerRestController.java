@@ -5,8 +5,6 @@ import de.zettsystems.netzfilm.customer.values.CustomerDataTo;
 import de.zettsystems.netzfilm.customer.values.CustomerTo;
 import de.zettsystems.netzfilm.customer.values.NoSuchCustomerException;
 import de.zettsystems.netzfilm.rent.application.RentService;
-import de.zettsystems.netzfilm.rent.values.RentListTo;
-import de.zettsystems.netzfilm.rent.values.RentTo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

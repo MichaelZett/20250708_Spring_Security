@@ -15,7 +15,7 @@ class MovieTest {
 
     @BeforeEach
     void setup() {
-        testee = new Movie("The company", LocalDate.of(2001,9,8), Fsk.FSK_6);
+        testee = new Movie("The company", LocalDate.of(2001, 9, 8), Fsk.FSK_6);
     }
 
     @Test

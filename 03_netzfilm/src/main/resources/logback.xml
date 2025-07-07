@@ -10,7 +10,7 @@
     </root>
 
     <!-- Auskommentieren um SQL Logging zu bekommen -->
-        <logger name="org.springframework.security" level="DEBUG"/>
+    <logger name="org.springframework.security" level="DEBUG"/>
 
     <!-- Auskommentieren um SQL Logging zu bekommen -->
     <!--    <logger name="org.hibernate.SQL" level="DEBUG"/>-->

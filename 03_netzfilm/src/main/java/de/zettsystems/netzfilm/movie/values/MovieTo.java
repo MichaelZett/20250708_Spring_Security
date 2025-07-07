@@ -20,7 +20,7 @@ public record MovieTo(@Schema(description = "Eindeutige ID") UUID uuid,
                               pattern = "dd.MM.yyyy",
                               example = "31.12.2022"
                       ) @NotNull @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, fallbackPatterns = {"dd.MM.yyyy"})
-                      @JsonFormat(pattern = "dd.MM.yyyy")LocalDate releaseDate,
+                      @JsonFormat(pattern = "dd.MM.yyyy") LocalDate releaseDate,
                       @Schema(description = "Altersfreigabe") @NotNull Fsk fsk,
                       @Schema(description = "Interne Version") long version) {
 }

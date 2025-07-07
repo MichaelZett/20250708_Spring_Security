@@ -1,9 +1,6 @@
 package de.zettsystems.netzfilm.customer.domain;
 
 import de.zettsystems.netzfilm.customer.values.CustomerTo;
-import de.zettsystems.netzfilm.movie.domain.Movie;
-import de.zettsystems.netzfilm.movie.values.Fsk;
-import de.zettsystems.netzfilm.movie.values.MovieTo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -30,8 +27,8 @@ class CustomerTest {
     @Test
     void shouldUpdate() {
         final LocalDate birthdate = LocalDate.of(2003, 9, 8);
-        testee.update(new CustomerTo(testee.getUuid(), testee.getUsername(),testee.getName(), testee.getLastName(),
-                birthdate, false,0));
+        testee.update(new CustomerTo(testee.getUuid(), testee.getUsername(), testee.getName(), testee.getLastName(),
+                birthdate, false, 0));
 
         assertThat(testee.getBirthdate()).isEqualTo(birthdate);
     }

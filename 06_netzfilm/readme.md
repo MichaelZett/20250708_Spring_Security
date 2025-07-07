@@ -52,3 +52,5 @@ Es werden testcontainers eingesetzt, um für die Tests die DB starten zu können
 - anke:anke uuid: 77c4f5dd-b29c-4976-9c30-47cc00f0f7d2
 - werner:werner uuid: 984008c7-afee-4067-955e-0b55a21de59e (ist VIP Kunde)
 - fritz:fritz (10 Jahre)
+## Accountant
+- klara:klara

@@ -7,9 +7,9 @@ import java.util.List;
 
 public class PasswordGenerator {
     // Zeichenvorrat: Groß‑, Kleinbuchstaben, Ziffern und Sonderzeichen
-    private static final String UPPER   = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static final String LOWER   = UPPER.toLowerCase();
-    private static final String DIGITS  = "0123456789";
+    private static final String UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String LOWER = UPPER.toLowerCase();
+    private static final String DIGITS = "0123456789";
     private static final String SYMBOLS = "!@#$%^&*()-_+=<>?";
 
     private static final String ALL = UPPER + LOWER + DIGITS + SYMBOLS;

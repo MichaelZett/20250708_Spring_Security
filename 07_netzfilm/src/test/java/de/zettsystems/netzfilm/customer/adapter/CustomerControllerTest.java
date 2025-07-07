@@ -3,9 +3,6 @@ package de.zettsystems.netzfilm.customer.adapter;
 import de.zettsystems.netzfilm.configuration.SecurityConfig;
 import de.zettsystems.netzfilm.customer.application.CustomerService;
 import de.zettsystems.netzfilm.customer.values.CustomerTo;
-import de.zettsystems.netzfilm.movie.adapter.MovieController;
-import de.zettsystems.netzfilm.movie.values.Fsk;
-import de.zettsystems.netzfilm.movie.values.MovieTo;
 import de.zettsystems.netzfilm.user.domain.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +39,7 @@ class CustomerControllerTest {
     @WithMockUser(roles = "STAFF")
     void shouldFindAll() throws Exception {
         CustomerTo customerTo = new CustomerTo(UUID.randomUUID(), "bernd", "Bernd", "das Brot",
-                LocalDate.now(), false,0);
+                LocalDate.now(), false, 0);
 
         List<CustomerTo> movies = List.of(customerTo);
 

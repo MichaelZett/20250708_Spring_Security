@@ -11,7 +11,7 @@ import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PostFilter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +25,7 @@ import java.util.UUID;
 public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;
     private final EntityManager entityManager;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final Argon2PasswordEncoder argon2PasswordEncoder;
 
     @Override
     @PostFilter("!filterObject.vip() or hasRole(T(de.zettsystems.netzfilm.user.values.Role).VIP_STAFF.name())")
@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
     public UUID addCustomer(CustomerDataTo customer) {
         String newPwd = PasswordGenerator.generate(16);
         LOG.info("Neues Passwort {} für User {}", newPwd, customer.username());
-        Customer saved = customerRepository.save(new Customer(customer.username(), bCryptPasswordEncoder.encode(newPwd), customer.name(), customer.lastName(), customer.birthdate(),
+        Customer saved = customerRepository.save(new Customer(customer.username(), argon2PasswordEncoder.encode(newPwd), customer.name(), customer.lastName(), customer.birthdate(),
                 Collections.singleton(Role.CUSTOMER)));
         return saved.getUuid();
     }

@@ -1,7 +1,6 @@
 package de.zettsystems.netzfilm.rent.domain;
 
 import de.zettsystems.netzfilm.customer.domain.Customer;
-import de.zettsystems.netzfilm.customer.values.CustomerTo;
 import de.zettsystems.netzfilm.movie.domain.Movie;
 import de.zettsystems.netzfilm.rent.values.RentListTo;
 import org.junit.jupiter.api.Test;

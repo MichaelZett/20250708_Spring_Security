@@ -1,0 +1,26 @@
+                                                                                                                                                                                                                  
+                                                                                                                                                                                                                   
+               AAA                  CCCCCCCCCCCCC       CCCCCCCCCCCCC     OOOOOOOOO     UUUUUUUU     UUUUUUUUNNNNNNNN        NNNNNNNNTTTTTTTTTTTTTTTTTTTTTTTIIIIIIIIIINNNNNNNN        NNNNNNNN        GGGGGGGGGGGGG
+              A:::A              CCC::::::::::::C    CCC::::::::::::C   OO:::::::::OO   U::::::U     U::::::UN:::::::N       N::::::NT:::::::::::::::::::::TI::::::::IN:::::::N       N::::::N     GGG::::::::::::G
+             A:::::A           CC:::::::::::::::C  CC:::::::::::::::C OO:::::::::::::OO U::::::U     U::::::UN::::::::N      N::::::NT:::::::::::::::::::::TI::::::::IN::::::::N      N::::::N   GG:::::::::::::::G
+            A:::::::A         C:::::CCCCCCCC::::C C:::::CCCCCCCC::::CO:::::::OOO:::::::OUU:::::U     U:::::UUN:::::::::N     N::::::NT:::::TT:::::::TT:::::TII::::::IIN:::::::::N     N::::::N  G:::::GGGGGGGG::::G
+           A:::::::::A       C:::::C       CCCCCCC:::::C       CCCCCCO::::::O   O::::::O U:::::U     U:::::U N::::::::::N    N::::::NTTTTTT  T:::::T  TTTTTT  I::::I  N::::::::::N    N::::::N G:::::G       GGGGGG
+          A:::::A:::::A     C:::::C             C:::::C              O:::::O     O:::::O U:::::D     D:::::U N:::::::::::N   N::::::N        T:::::T          I::::I  N:::::::::::N   N::::::NG:::::G              
+         A:::::A A:::::A    C:::::C             C:::::C              O:::::O     O:::::O U:::::D     D:::::U N:::::::N::::N  N::::::N        T:::::T          I::::I  N:::::::N::::N  N::::::NG:::::G              
+        A:::::A   A:::::A   C:::::C             C:::::C              O:::::O     O:::::O U:::::D     D:::::U N::::::N N::::N N::::::N        T:::::T          I::::I  N::::::N N::::N N::::::NG:::::G    GGGGGGGGGG
+       A:::::A     A:::::A  C:::::C             C:::::C              O:::::O     O:::::O U:::::D     D:::::U N::::::N  N::::N:::::::N        T:::::T          I::::I  N::::::N  N::::N:::::::NG:::::G    G::::::::G
+      A:::::AAAAAAAAA:::::A C:::::C             C:::::C              O:::::O     O:::::O U:::::D     D:::::U N::::::N   N:::::::::::N        T:::::T          I::::I  N::::::N   N:::::::::::NG:::::G    GGGGG::::G
+     A:::::::::::::::::::::AC:::::C             C:::::C              O:::::O     O:::::O U:::::D     D:::::U N::::::N    N::::::::::N        T:::::T          I::::I  N::::::N    N::::::::::NG:::::G        G::::G
+    A:::::AAAAAAAAAAAAA:::::AC:::::C       CCCCCCC:::::C       CCCCCCO::::::O   O::::::O U::::::U   U::::::U N::::::N     N:::::::::N        T:::::T          I::::I  N::::::N     N:::::::::N G:::::G       G::::G
+   A:::::A             A:::::AC:::::CCCCCCCC::::C C:::::CCCCCCCC::::CO:::::::OOO:::::::O U:::::::UUU:::::::U N::::::N      N::::::::N      TT:::::::TT      II::::::IIN::::::N      N::::::::N  G:::::GGGGGGGG::::G
+  A:::::A               A:::::ACC:::::::::::::::C  CC:::::::::::::::C OO:::::::::::::OO   UU:::::::::::::UU  N::::::N       N:::::::N      T:::::::::T      I::::::::IN::::::N       N:::::::N   GG:::::::::::::::G
+ A:::::A                 A:::::A CCC::::::::::::C    CCC::::::::::::C   OO:::::::::OO       UU:::::::::UU    N::::::N        N::::::N      T:::::::::T      I::::::::IN::::::N        N::::::N     GGG::::::GGG:::G
+AAAAAAA                   AAAAAAA   CCCCCCCCCCCCC       CCCCCCCCCCCCC     OOOOOOOOO           UUUUUUUUU      NNNNNNNN         NNNNNNN      TTTTTTTTTTT      IIIIIIIIIINNNNNNNN         NNNNNNN        GGGGGG   GGGG
+                                                                                                                                                                                                                   
+                                                                                                                                                                                                  
+                                                                                                                                                                                                                   
+                                                                                                                                                                                                                   
+                                                                                                                                                                                                                   
+                                                                                                                                                                                                                   
+Version: ${application.version}
+Powered by Spring Boot ${spring-boot.version}

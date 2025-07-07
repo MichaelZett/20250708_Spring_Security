@@ -1,0 +1,33 @@
+package de.zettsystems.netzfilm.account.adapter;
+
+import de.zettsystems.netzfilm.account.application.StatisticsService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
+
+@RestController
+@RequestMapping("/api/account")
+@RequiredArgsConstructor
+@Tag(name = "Account", description = "Accounting endpoints")
+class AccountRestController {
+    private final StatisticsService statisticsService;
+
+    @Operation(summary = "See account statistics")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "account statistics", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))})})
+    @GetMapping("/statistics")
+    public Collection<String> retrieveStatistics() {
+        return statisticsService.retrieveStatistics();
+    }
+
+}
