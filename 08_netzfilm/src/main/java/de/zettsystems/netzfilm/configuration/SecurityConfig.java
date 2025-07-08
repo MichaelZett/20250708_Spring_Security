@@ -1,7 +1,6 @@
 package de.zettsystems.netzfilm.configuration;
 
 
-import de.zettsystems.netzfilm.user.application.CustomUserDetailService;
 import de.zettsystems.netzfilm.user.application.UserDetailsServiceImpl;
 import de.zettsystems.netzfilm.user.domain.UserRepository;
 import de.zettsystems.netzfilm.user.values.Role;
@@ -12,6 +11,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
@@ -45,14 +45,14 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(authConfig -> {
                     authConfig.requestMatchers("/login", "/public/**").permitAll();
-                    authConfig.requestMatchers("/customers", "/movies").hasRole(Role.STAFF.name());
+                    authConfig.requestMatchers("/customers", "/movies", "/addcustomer","/addmovie").hasRole(Role.STAFF.name());
                     authConfig.requestMatchers("/api/account/statistics").hasRole(Role.ACCOUNT.name());
                     authConfig.requestMatchers("/actuator").hasRole(Role.ADMIN.name());
                     authConfig.requestMatchers("/api/customers/whoami").hasAnyRole(Role.CUSTOMER.name(), Role.STAFF.name(), Role.ADMIN.name());
                     authConfig.requestMatchers("/swagger-ui", "/v3/api-docs").hasAnyRole(Role.CUSTOMER.name(), Role.STAFF.name(), Role.ADMIN.name(), Role.ACCOUNT.name());
                     authConfig.requestMatchers("/api/customers/*/rents", "/api/customers/*/rents/**").hasAnyRole(Role.CUSTOMER.name(), Role.STAFF.name(), Role.ADMIN.name());
                     authConfig.requestMatchers("/api/**").hasAnyRole(Role.STAFF.name(), Role.ADMIN.name());
-                    authConfig.requestMatchers("/rents").hasRole(Role.CUSTOMER.name());
+                    authConfig.requestMatchers("/rents","/addrent").hasRole(Role.CUSTOMER.name());
                     authConfig.anyRequest().authenticated();
                 })
                 .formLogin(withDefaults())
@@ -62,7 +62,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public Argon2PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() {
         return Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
     }
 

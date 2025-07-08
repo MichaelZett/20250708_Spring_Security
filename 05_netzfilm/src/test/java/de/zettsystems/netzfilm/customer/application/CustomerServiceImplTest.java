@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -27,7 +26,7 @@ class CustomerServiceImplTest {
     @Mock
     private CustomerRepository customerRepository;
     @Mock
-    private Argon2PasswordEncoder argon2PasswordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @InjectMocks
     private CustomerServiceImpl testee;
@@ -37,7 +36,7 @@ class CustomerServiceImplTest {
 
     @Test
     void shouldAddCustomer() {
-        when(argon2PasswordEncoder.encode(any(String.class))).thenReturn("encrypted_password");
+        when(passwordEncoder.encode(any(String.class))).thenReturn("encrypted_password");
         when(customerRepository.save(any(Customer.class))).thenAnswer(AdditionalAnswers.returnsFirstArg());
 
         final CustomerDataTo customerTo = new CustomerDataTo("test", "Test", "Tester", LocalDate.now().minusYears(20L));

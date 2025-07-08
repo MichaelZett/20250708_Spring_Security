@@ -1,20 +1,24 @@
 package de.zettsystems.netzfilm.user.application;
 
+import de.zettsystems.netzfilm.user.domain.BaseUser;
+import de.zettsystems.netzfilm.user.domain.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.event.AuthenticationFailureBadCredentialsEvent;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor
 class LoginAttemptService {
 
-    private final UserDetailsService userDetailsService;
+    private final UserRepository userRepository;
 
     @EventListener(AuthenticationFailureBadCredentialsEvent.class)
+    @Transactional
     public void onFail(AuthenticationFailureBadCredentialsEvent e) {
-        ((CustomUserDetailService) userDetailsService).failedAttempt(e.getAuthentication().getName());
+        userRepository.findByUsername(e.getAuthentication().getName()).ifPresent(BaseUser::incrementFailedAttempt);
     }
 
 }

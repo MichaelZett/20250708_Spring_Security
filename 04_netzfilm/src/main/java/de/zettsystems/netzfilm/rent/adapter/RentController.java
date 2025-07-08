@@ -32,7 +32,7 @@ public class RentController {
     private final RentService rentService;
     private final CustomerRepository customerRepository;
 
-    @GetMapping("/rent")
+    @GetMapping("/rents")
     public String showRentForm(Model model, HttpServletRequest request) {
         final Customer customer = getCustomer(request.getUserPrincipal());
         final List<MovieTo> allMovies = movieService.getAllMovies();
@@ -44,7 +44,7 @@ public class RentController {
         model.addAttribute("rent", new RentTo(null, LocalDate.now(), 1));
         model.addAttribute("rents", rentService.findAllRents(customer));
 
-        return "rent/rent";
+        return "rents/rents";
     }
 
     @PostMapping("/addrent")
@@ -54,12 +54,12 @@ public class RentController {
             final List<MovieTo> allMovies = movieService.getAllMovies();
             model.addAttribute("movies", allMovies);
             model.addAttribute("rents", rentService.findAllRents(customer));
-            return "rent/rent";
+            return "rents/rents";
         }
         rentService.rentAMovie(rent, customer);
         redirectAttributes.addFlashAttribute("message", "Hallo, " + customer.getName() + ". Du hast '" + movieService.getTitle(rent.movieUuid()) + "' geliehen. Danke!");
         redirectAttributes.addFlashAttribute("messageType", "success");
-        return "redirect:/rent";
+        return "redirect:/rents";
     }
 
     private Customer getCustomer(Principal principal) {

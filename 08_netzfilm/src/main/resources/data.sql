@@ -6,12 +6,12 @@ values (nextval('USER_SEQ'), 0, '43131897-34be-4ab6-9c6a-f7280690fb2a', 'erik', 
 insert into users (ID, VERSION, UUID, USERNAME, USER_TYPE, LAST_NAME, NAME, PASSWORD, BIRTHDATE, VIP, failed_attempts)
 values (nextval('USER_SEQ'), 0, '68111897-39bd-4db6-9c6a-f7080690fb2a', 'petra', 'STAFF',
         'Meyer', 'Petra',
-        '$argon2id$v=19$m=16384,t=2,p=1$2DhnHlcnb2z1deZdalPPDQ$OBKas0ScGRNNfnvv36838vdWUQyZipSXZPtKPaimngs',
+        '$argon2id$v=19$m=16384,t=2,p=1$40ZpkQRdmK2wwDEdw5Jr0g$yl4ZI/TOqG0kPhS1+2WmBoz7cTuD0//DJkWHwNPwXg0',
         '1963-07-11', false, 0);
 insert into users (ID, VERSION, UUID, USERNAME, USER_TYPE, LAST_NAME, NAME, PASSWORD, BIRTHDATE, VIP, failed_attempts)
 values (nextval('USER_SEQ'), 0, '97eb8fc7-3a5f-4774-bdc7-aeeef0964ff9', 'frank', 'STAFF',
         'Schuhmacher', 'Frank',
-        '$argon2id$v=19$m=16384,t=2,p=1$XEYndbC9t5XvXlCXaFSMEQ$Ec0MZMvenzIhXV14/bdL42F+b3u4wFh0i4vZdWgGCCs',
+        '$argon2id$v=19$m=16384,t=2,p=1$Uu0TMp9HDZMo8KXfWglMHA$3SKzkTFfLsx2nq+giJjUrzF3OuUUfR0ax4PS4a2ILq4',
         '1981-02-28', false, 0);
 insert into users (ID, VERSION, UUID, USERNAME, USER_TYPE, LAST_NAME, NAME, PASSWORD, BIRTHDATE, VIP, failed_attempts)
 values (nextval('USER_SEQ'), 0, '47c4f5af-b29c-4376-9c31-47de05f0f7d2', 'klara', 'STAFF',
@@ -21,7 +21,7 @@ values (nextval('USER_SEQ'), 0, '47c4f5af-b29c-4376-9c31-47de05f0f7d2', 'klara',
 insert into users (ID, VERSION, UUID, USERNAME, USER_TYPE, LAST_NAME, NAME, PASSWORD, BIRTHDATE, VIP, failed_attempts)
 values (nextval('USER_SEQ'), 0, '77c4f5dd-b29c-4976-9c30-47cc00f0f7d2', 'anke', 'CUST',
         'Müller', 'Anke',
-        '$argon2id$v=19$m=16384,t=2,p=1$d9k6WhY1pc4KpjVKaHDjew$NNU3Ih1rKGNeqHDlgeZEO5KNgx7mvn8qe5dkjqsOXJk',
+        '$argon2id$v=19$m=16384,t=2,p=1$95Uq5TxggmpNn0ORMj965A$qqhcn0y2/tXKSc2ixnl785ni5T0nuUmHoFbCl+x2E5U',
         '1975-09-03', false, 0);
 insert into users (ID, VERSION, UUID, USERNAME, USER_TYPE, LAST_NAME, NAME, PASSWORD, BIRTHDATE, VIP, failed_attempts)
 values (nextval('USER_SEQ'), 0, '984008c7-afee-4067-955e-0b55a21de59e', 'werner', 'CUST',

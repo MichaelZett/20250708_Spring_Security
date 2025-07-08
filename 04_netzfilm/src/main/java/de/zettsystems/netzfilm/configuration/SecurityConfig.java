@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -22,9 +22,9 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authConfig -> {
                     authConfig.requestMatchers("/login", "/public/**").permitAll();
-                    authConfig.requestMatchers("/customers", "/movies", "/addcustomer","/addmovie").hasRole(Role.STAFF.name());
+                    authConfig.requestMatchers("/customers", "/movies", "/addcustomer", "/addmovie").hasRole(Role.STAFF.name());
                     authConfig.requestMatchers("/actuator", "/swagger-ui", "/api/**", "/v3/api-docs").hasRole(Role.ADMIN.name());
-                    authConfig.requestMatchers("/rent","/addrent").hasRole(Role.CUSTOMER.name());
+                    authConfig.requestMatchers("/rents", "/addrent").hasRole(Role.CUSTOMER.name());
                     authConfig.anyRequest().authenticated();
                 })
                 .formLogin(withDefaults())
@@ -35,7 +35,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public Argon2PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() {
         return Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
     }
 

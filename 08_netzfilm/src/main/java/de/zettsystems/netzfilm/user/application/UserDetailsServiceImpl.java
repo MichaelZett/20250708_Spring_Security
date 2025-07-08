@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @Slf4j
 @RequiredArgsConstructor
-public class UserDetailsServiceImpl implements UserDetailsService, CustomUserDetailService {
+public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserRepository userRepository;
 
     @Override
@@ -18,8 +18,4 @@ public class UserDetailsServiceImpl implements UserDetailsService, CustomUserDet
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
     }
 
-    @Override
-    public void failedAttempt(String name) {
-        ((BaseUser) loadUserByUsername(name)).incrementFailedAttempt();
-    }
 }
