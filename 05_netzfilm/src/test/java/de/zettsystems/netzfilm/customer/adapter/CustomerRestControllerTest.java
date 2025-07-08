@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -60,6 +61,16 @@ class CustomerRestControllerTest {
                 .andExpect(jsonPath("$.[0].lastName").value("das Brot"))
                 .andExpect(jsonPath("$.[0].version").value(0))
                 .andExpect(jsonPath("$.[0].birthdate").value(LocalDate.now().format(FORMATTER)));
+    }
+
+    @Test
+    @WithMockUser(roles = "CUSTOMER")
+    void shouldBeForbidden() throws Exception {
+        given(customerService.getAllCustomers()).willReturn(Collections.emptyList());
+
+        mvc.perform(get("/api/customers"))
+                .andDo(print())
+                .andExpect(status().isForbidden());
     }
 
 }

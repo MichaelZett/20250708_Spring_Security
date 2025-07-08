@@ -22,9 +22,9 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authConfig -> {
                     authConfig.requestMatchers("/login", "/public/**").permitAll();
-                    authConfig.requestMatchers("/customers", "/movies").hasRole(Role.STAFF.name());
+                    authConfig.requestMatchers("/customers", "/movies", "/addcustomer","/addmovie").hasRole(Role.STAFF.name());
                     authConfig.requestMatchers("/actuator", "/swagger-ui", "/api/**", "/v3/api-docs").hasRole(Role.ADMIN.name());
-                    authConfig.requestMatchers("/rent").hasRole(Role.CUSTOMER.name());
+                    authConfig.requestMatchers("/rent","/addrent").hasRole(Role.CUSTOMER.name());
                     authConfig.anyRequest().authenticated();
                 })
                 .formLogin(withDefaults())

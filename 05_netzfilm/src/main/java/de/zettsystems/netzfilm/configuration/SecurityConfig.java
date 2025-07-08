@@ -35,8 +35,8 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(authConfig -> {
                     authConfig.requestMatchers("/login", "/public/**").permitAll();
-                    authConfig.requestMatchers("/customers", "/movies").hasRole(Role.STAFF.name());
-                    authConfig.requestMatchers("/rents").hasRole(Role.CUSTOMER.name());
+                    authConfig.requestMatchers("/customers", "/movies", "/addcustomer","/addmovie").hasRole(Role.STAFF.name());
+                    authConfig.requestMatchers("/rents","/addrent").hasRole(Role.CUSTOMER.name());
                     authConfig.requestMatchers("/api/**").hasAnyRole(Role.STAFF.name(), Role.ADMIN.name());
                     authConfig.requestMatchers("/actuator", "/swagger-ui", "/v3/api-docs").hasRole(Role.ADMIN.name());
                     authConfig.anyRequest().authenticated();
