@@ -70,16 +70,6 @@ class RentControllerTest {
                 .andExpect(content().string(containsString("Filmchen")));
     }
 
-    /**
-     * <form id="attackForm"
-     * action="http://localhost:10000/addrent"
-     * method="POST"
-     * style="display:none;">
-     * <input type="hidden" name="movieUuid"    value=/>
-     * <input type="hidden" name="startDate"    value="2025-07-09"/>
-     * <input type="hidden" name="numberOfDays" value="5"/>
-     */
-
     @Test
     @WithMockUser(username = "Petra", roles = "CUSTOMER")
     void shouldPostForbidden() throws Exception {
