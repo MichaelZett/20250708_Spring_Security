@@ -12,10 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 @RequiredArgsConstructor
 class LoginAttemptService {
-
     private final UserRepository userRepository;
 
-    @EventListener(AuthenticationFailureBadCredentialsEvent.class)
+    @EventListener
     @Transactional
     public void onFail(AuthenticationFailureBadCredentialsEvent e) {
         userRepository.findByUsername(e.getAuthentication().getName()).ifPresent(BaseUser::incrementFailedAttempt);
