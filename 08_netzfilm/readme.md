@@ -1,4 +1,4 @@
-# Netzfim Grundprojekt
+# Netzfilm Grundprojekt
 ## build
 Das Projekt wird mit Maven gebaut. Maven Wrapper ist konfiguriert, so dass kein Maven vorliegen muss.
 ## Java
